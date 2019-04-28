@@ -49,16 +49,16 @@ s = 'Nisl scelerisque justo per hac cras purus lectus maecenas litora facilisi p
 # x = s[-1:]
 # print(x)
 
-l = []
+li = []
 while 'i' in s:
     h = s.rfind('i')
     # print(h + 1)
-    l.append(str(h + 1))
+    li.append(str(h + 1))
     s = s[:h]
     # print(s)
 
-# print(l)
-v = ', '.join(reversed(l))
+# print(li)
+v = ', '.join(reversed(li))
 print(v)
 
 # 4
@@ -70,13 +70,13 @@ print('====== 4 task =======')
 s = 'jhkjkoiwejkh kjahlskdjfh  qwkjhlk zkjh kjhaswdefxkjh jkjhkjh'
 
 k = s.find('x')
-l = s.find('w')
-#print('In \'',s,'\'')
+li = s.find('w')
+# print('In \'',s,'\'')
 print('In \'%s\'' % s)
 
-if k > l:
+if k > li:
     print('\'w\' is the first, not \'x\'')
-elif k < l:
+elif k < li:
     print('\'x\' is the first, not \'w\'')
 else:
     print('There is no \'x\' or \'w\' in the string.')
@@ -108,7 +108,7 @@ print(len(d))
 # Дана строка. Заменить каждый четный символ или на 'a',
 # если символ не равен 'a' или 'b', или на 'c' в противном случае.
 print('====== 7 task =======')
-s = 'abra cadabra' #Nisl scelerisque justo per hac ras purus lectus maecenas litora facilisi potenti'
+s = 'abra cadabra'  # Nisl scelerisque justo per hac ras purus lectus maecenas litora facilisi potenti'
 
 # print(len(s))
 # d = list(s)
@@ -124,10 +124,83 @@ for i in range(1, len(d), 2):
     if d[i] != 'a' and d[i] != 'b':
         d.pop(i)
         d.insert(i, 'a')
-        print(d)
+        # print(d)
     elif d[i] is 'a' or d[i] is 'b':
         d.pop(i)
         d.insert(i, 'c')
-        print(d)
+        # print(d)
 
 print(d)
+j = ''.join(d)
+print(j)
+
+# 8
+# Дана строка. Если она начинается на 'abc', то заменить их на 'www',
+# иначе добавить в конец строки 'zzz'.
+print('====== 8 task =======')
+
+# s = 'abcdefghijklmnopqrstuvwxyz'
+s = 'in mask we trust'
+
+# print(s[:3] == 'abc')
+# print(s)
+
+if s[:3] == 'abc':              # можна використати str.endswith(suffix[, start[, end]])
+    res = s.replace('abc', 'www', 1)   # не вийшло, поки не присвоїла йншій змінній, Антон підказав
+else:
+    res = s + 'zzz'
+
+# коли метод повертає копію рядка (списку, словаря), то цій копії треба присвоїти нову змінну
+
+print(res)
+# e = type(s[:3])
+# print(e, s)
+# s.replace('abc', 'www', 1)
+# print(s)
+# s = s + 'zzz'
+
+# 9
+# Дано две строки. Сравнить совпадают ли в них первые и последние 4 символа.
+print('====== 9 task =======')
+s1 = 'qui la voce sua soave'
+# s2 = 'qui la voce sua soave'
+s2 = 'la voce sua soave qui'
+
+print(s1[:4])
+print(s1[-4:])
+
+if s1[:4] == s2[:4] \
+        and s1[-4:] == s2[-4:]:
+    print('they are identical')
+else:
+    print('no, no, no')
+
+# 10
+# Дана строка. Вывести средний символ в нижнем регистре.
+print('====== 10 task =======')
+s = 'PACE, PACEO MIO DIO!'
+# difine if there is even or odd number of letters in the string
+print(len(s))
+# print(len(s)//2)
+# print(s[-len(s)//2:])
+
+ls = len(s)//2
+if len(s)%2 == 0:
+    s1 = s[ls - 1:]
+    s2 = s1[:-ls + 1]
+    print(s2)
+    lo = s2.lower()
+    print(lo)
+    new_s = s[:ls - 1] + lo + s[-ls + 1:]
+else:
+    s1 = s[ls:]
+    s2 = s1[:-ls]
+    print(s2)
+    lo = s2.lower()
+    print(lo)
+    new_s = s[:ls] + lo + s[-ls:]
+print(new_s)
+
+# or make this task using list?
+
+# or with replace?
